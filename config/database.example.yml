@@ -1,0 +1,11 @@
+development:
+  adapter: postgresql
+  database: scenic_railways
+  host: localhost
+  min_messages: warning
+
+test:
+  adapter: postgresql
+  database: scenic_railways_test
+  host: localhost
+  min_messages: warning

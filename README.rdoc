@@ -1,0 +1,12 @@
+== Welcome to Rails
+
+INSTALLATION INSTRUCTIONS
+
+1. Setup rvm (or rbenv or whatever) to use Ruby 1.9.2
+2. Copy config/database.example.yml to config/database.yml
+3. Create development and test databases in Postgres
+4. Type 'bundle install'
+5. Type 'foreman start'  Website should be visible in browser at address specified
+5. Type 'bundle exec rake test' - tests should run and pass
+
+
