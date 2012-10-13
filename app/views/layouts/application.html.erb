@@ -7,8 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="site-header">
+    <%= link_to "Scenic Railways", root_path, :class => "site-name" %>
+    <p class="tagline">Things to see from trains</p>
+  </div>
 
-<%= yield %>
+  <article>
+
+    <%= yield %>
+  </article>
 
 </body>
 </html>

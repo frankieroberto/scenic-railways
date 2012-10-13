@@ -21,12 +21,12 @@
     }
     
     // Generate a wikipedia query string
-    NSString *name = self.name;
+    NSString *wikiName = self.name;
     if ([self isKindOfClass:[SRStation class]]) {
-        name = [NSString stringWithFormat:@"%@ station", name];
+        wikiName = [NSString stringWithFormat:@"%@ station", wikiName];
     }
 
-    return [NSString stringWithFormat:@"http://en.wikipedia.org/wiki/Special:Search/%@", [self.name stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
+    return [NSString stringWithFormat:@"http://en.wikipedia.org/wiki/Special:Search/%@", [wikiName stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
 }
 
 @end

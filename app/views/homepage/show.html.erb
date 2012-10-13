@@ -1,10 +1,11 @@
-<h1>Scenic Railways</h1>
 
 <% @scenic_routes.each do |scenic_route| %>
   <%= content_tag 'h2', link_to(scenic_route.name, scenic_route) %>
-  <%= scenic_route.description %>
+  <p><%= scenic_route.description %></p>
 
 <% end %>
 
+<!--
 <p><%= link_to "Routes", routes_path %></p>
 <p><%= link_to "Stations", stations_path %></p>
+-->

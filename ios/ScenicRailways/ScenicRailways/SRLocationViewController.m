@@ -10,9 +10,9 @@
 
 #import "SRRouteEntry.h"
 #import "MKMapView+ZoomLevel.h"
+#import "TTTLocationFormatter.h"
 
 @interface SRLocationViewController ()
-
 @end
 
 @implementation SRLocationViewController
@@ -26,8 +26,7 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     [self updateView];
@@ -43,11 +42,15 @@
 
 - (void)locationUpdate:(id)update {
     CLLocation *location = [update userInfo][@"location"];
-    _distanceLabel.text = [NSString stringWithFormat:@"Your Location: %.6f, %.6f", location.coordinate.latitude, location.coordinate.longitude];
+    if (_entry) {
+        CLLocation *entryLocation = [[CLLocation alloc] initWithLatitude:_entry.coordinate.latitude longitude:_entry.coordinate.longitude];
+        TTTLocationFormatter *formatter = [[TTTLocationFormatter alloc] init];
+        formatter.unitSystem = TTTImperialSystem;
+        _distanceLabel.text = [formatter stringFromDistanceAndBearingFromLocation:location toLocation:entryLocation];
+    }
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
