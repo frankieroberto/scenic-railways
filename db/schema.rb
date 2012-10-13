@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121013124010) do
+ActiveRecord::Schema.define(:version => 20121013142909) do
 
   create_table "pois", :force => true do |t|
     t.string   "name"
@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(:version => 20121013124010) do
   end
 
   create_table "routes", :force => true do |t|
-    t.integer  "start_station_id"
-    t.integer  "end_station_id"
+    t.integer  "start_station_id", :null => false
+    t.integer  "end_station_id",   :null => false
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
