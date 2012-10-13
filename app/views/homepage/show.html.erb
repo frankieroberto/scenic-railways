@@ -1,5 +1,7 @@
 <h1>Scenic Railways</h1>
 
-<p>WOOHOO, it works.</p>
+<% @scenic_routes.each do |scenic_route| %>
+  <%= content_tag 'h2', scenic_route.name %>
+  <%= scenic_route.description %>
 
-<p>..and Jez can push to the repo</p>
+<% end %>
