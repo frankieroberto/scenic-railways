@@ -10,6 +10,7 @@
 
 #import "SRRouteTableViewController.h"
 
+#import "AFJSONRequestOperation.h"
 #import "MBProgressHUD.h"
 #import "SRLocationViewController.h"
 #import "SRScenicRoute.h"
@@ -68,30 +69,68 @@
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 
-    [self processLoadedData];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.scenicrailways.org.uk/scenic_routes/%@.json", _route.routeId]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        [self receivedDataUpdate:JSON];
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [self receivedDataUpdate:JSON];
+    }];
+    
+    [operation start];
 }
 
-- (void)processLoadedData {
+- (void)receivedDataUpdate:(id)JSON {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     _loading = NO;
     [_routeEntries removeAllObjects];
     
-    SRStation *sheffield = [[SRStation alloc] init];
-    sheffield.name = @"Sheffield";
-    sheffield.wikipediaURL = @"http://en.wikipedia.org/wiki/Sheffield_station";
-    sheffield.coordinate = CLLocationCoordinate2DMake(53.378, -1.462);
-    [_routeEntries addObject:sheffield];
-    
-    SRViewOfInterest *totleyTunnel = [[SRViewOfInterest alloc] init];
-    totleyTunnel.name = @"Totley Tunnel";
-    totleyTunnel.coordinate = CLLocationCoordinate2DMake(53.305108, -1.62555);
-    [_routeEntries addObject:totleyTunnel];
-    
-    SRStation *manchester = [[SRStation alloc] init];
-    manchester.name = @"Manchester";
-    manchester.wikipediaURL = @"http://en.wikipedia.org/wiki/Manchester_Piccadilly_station";
-    manchester.coordinate = CLLocationCoordinate2DMake(53.477, -2.23);
-    [_routeEntries addObject:manchester];
+    if ([JSON count] > 0) {
+        NSArray *routeParts = JSON[@"scenic_route_parts"];
+        for (NSDictionary *partDict in routeParts) {
+            NSDictionary *stationDict = partDict[@"route"][@"start_station"];
+            SRStation *station = [[SRStation alloc] init];
+            station.name = stationDict[@"name"];
+            station.coordinate = CLLocationCoordinate2DMake([stationDict[@"lat"] doubleValue], [stationDict[@"lng"] doubleValue]);
+            [_routeEntries addObject:station];
+            
+            NSArray *vois = partDict[@"route"][@"vois"];
+            for (NSDictionary *voiDict in vois) {
+                SRViewOfInterest *voi = [[SRViewOfInterest alloc] init];
+
+                voi.name = voiDict[@"poi"][@"name"];
+                voi.coordinate = CLLocationCoordinate2DMake([voiDict[@"poi"][@"lat"] doubleValue], [voiDict[@"poi"][@"lng"] doubleValue]);
+                [_routeEntries addObject:voi];
+            }
+        }
+        
+        NSDictionary *lastPart = [routeParts lastObject];
+        NSDictionary *stationDict = lastPart[@"route"][@"end_station"];
+        if (stationDict) {
+            SRStation *station = [[SRStation alloc] init];
+            station.name = stationDict[@"name"];
+            station.coordinate = CLLocationCoordinate2DMake([stationDict[@"lat"] doubleValue], [stationDict[@"lng"] doubleValue]);
+            [_routeEntries addObject:station];
+        }
+    } else {
+        SRStation *sheffield = [[SRStation alloc] init];
+        sheffield.name = @"Sheffield";
+        sheffield.wikipediaURL = @"http://en.wikipedia.org/wiki/Sheffield_station";
+        sheffield.coordinate = CLLocationCoordinate2DMake(53.378, -1.462);
+        [_routeEntries addObject:sheffield];
+        
+        SRViewOfInterest *totleyTunnel = [[SRViewOfInterest alloc] init];
+        totleyTunnel.name = @"Totley Tunnel";
+        totleyTunnel.coordinate = CLLocationCoordinate2DMake(53.305108, -1.62555);
+        [_routeEntries addObject:totleyTunnel];
+        
+        SRStation *manchester = [[SRStation alloc] init];
+        manchester.name = @"Manchester";
+        manchester.wikipediaURL = @"http://en.wikipedia.org/wiki/Manchester_Piccadilly_station";
+        manchester.coordinate = CLLocationCoordinate2DMake(53.477, -2.23);
+        [_routeEntries addObject:manchester];
+    }
     
     [self updateView];
 }
