@@ -81,6 +81,10 @@
     [operation start];
 }
 
+- (BOOL)isNotNull:(id)value {
+    return value && value != (id)[NSNull null];
+}
+
 - (void)receivedDataUpdate:(id)JSON {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     _loading = NO;
@@ -92,7 +96,9 @@
             NSDictionary *stationDict = partDict[@"route"][@"start_station"];
             SRStation *station = [[SRStation alloc] init];
             station.name = stationDict[@"name"];
-            station.coordinate = CLLocationCoordinate2DMake([stationDict[@"lat"] doubleValue], [stationDict[@"lng"] doubleValue]);
+            if ([self isNotNull:stationDict[@"lat"]] && [self isNotNull:stationDict[@"lng"]]) {
+                station.coordinate = CLLocationCoordinate2DMake([stationDict[@"lat"] doubleValue], [stationDict[@"lng"] doubleValue]);
+            }
             [_routeEntries addObject:station];
             
             NSArray *vois = partDict[@"route"][@"vois"];
@@ -102,7 +108,9 @@
                 voi.description = voiDict[@"poi"][@"description"];
                 voi.leftSide = [voiDict[@"left_side"] boolValue];
                 voi.name = voiDict[@"poi"][@"name"];
-                voi.coordinate = CLLocationCoordinate2DMake([voiDict[@"poi"][@"lat"] doubleValue], [voiDict[@"poi"][@"lng"] doubleValue]);
+                if ([self isNotNull:voiDict[@"poi"][@"lat"]] && [self isNotNull:voiDict[@"poi"][@"lng"]]) {
+                    voi.coordinate = CLLocationCoordinate2DMake([voiDict[@"poi"][@"lat"] doubleValue], [voiDict[@"poi"][@"lng"] doubleValue]);
+                }
                 [_routeEntries addObject:voi];
             }
         }
@@ -112,7 +120,9 @@
         if (stationDict) {
             SRStation *station = [[SRStation alloc] init];
             station.name = stationDict[@"name"];
-            station.coordinate = CLLocationCoordinate2DMake([stationDict[@"lat"] doubleValue], [stationDict[@"lng"] doubleValue]);
+            if ([self isNotNull:stationDict[@"lat"]] && [self isNotNull:stationDict[@"lng"]]) {
+                station.coordinate = CLLocationCoordinate2DMake([stationDict[@"lat"] doubleValue], [stationDict[@"lng"] doubleValue]);
+            }
             [_routeEntries addObject:station];
         }
     } else {
