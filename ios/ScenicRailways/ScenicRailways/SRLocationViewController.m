@@ -42,15 +42,18 @@
 - (void)updateView {
     self.title = _entry.name;
     
-    NSArray *oldAnnotations = [mapView.annotations copy];
+    NSArray *oldAnnotations = [_mapView.annotations copy];
     for (id<MKAnnotation> annotation in oldAnnotations) {
-        if (annotation != mapView.userLocation) {
-            [mapView removeAnnotation:annotation];
+        if (annotation != _mapView.userLocation) {
+            [_mapView removeAnnotation:annotation];
         }
     }
     
-    [mapView addAnnotation:_entry];
-    [mapView setCenterCoordinate:_entry.coordinate zoomLevel:13 animated:YES];
+    [_mapView addAnnotation:_entry];
+    [_mapView setCenterCoordinate:_entry.coordinate zoomLevel:13 animated:YES];
+
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:[NSURL URLWithString:_entry.wikipediaURL]];
+    [_webView loadRequest:requestObj];
 }
 
 - (void)setEntry:(SRRouteEntry *)entry {
@@ -59,6 +62,17 @@
     }
     
     [self updateView];
+}
+
+- (IBAction)selectionChanged:(id)sender {
+    int selection = _segmentedControl.selectedSegmentIndex;
+    if (selection == 0) {
+        _mapView.hidden = NO;
+        _webView.hidden = YES;
+    } else {
+        _mapView.hidden = YES;
+        _webView.hidden = NO;
+    }
 }
 
 @end
