@@ -1,0 +1,2 @@
+module ScenicRoutesHelper
+end

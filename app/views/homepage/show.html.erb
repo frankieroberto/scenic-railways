@@ -1,7 +1,7 @@
 <h1>Scenic Railways</h1>
 
 <% @scenic_routes.each do |scenic_route| %>
-  <%= content_tag 'h2', scenic_route.name %>
+  <%= content_tag 'h2', link_to(scenic_route.name, scenic_route) %>
   <%= scenic_route.description %>
 
 <% end %>
