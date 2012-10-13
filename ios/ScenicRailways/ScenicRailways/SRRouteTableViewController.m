@@ -10,6 +10,7 @@
 
 #import "SRRouteTableViewController.h"
 
+#import "MBProgressHUD.h"
 #import "SRLocationViewController.h"
 #import "SRScenicRoute.h"
 #import "SRStation.h"
@@ -17,6 +18,7 @@
 
 @interface SRRouteTableViewController () {
     NSMutableArray *_routeEntries;
+    BOOL _loading;
 }
 @end
 
@@ -27,6 +29,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _routeEntries = [NSMutableArray array];
+        _loading = NO;
     }
     return self;
 }
@@ -35,7 +38,9 @@
 {
     [super viewDidLoad];
     
-    // Do any additional setup after loading the view from its nib.
+    UIBarButtonItem *reloadButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(loadData)];
+    self.navigationItem.rightBarButtonItem = reloadButton;
+
     [self loadIfNecessary];
 }
 
@@ -56,10 +61,19 @@
         return;
     }
     
+    if (_loading) {
+        return;
+    }
+    _loading = YES;
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+
     [self processLoadedData];
 }
 
 - (void)processLoadedData {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    _loading = NO;
     [_routeEntries removeAllObjects];
     
     SRStation *sheffield = [[SRStation alloc] init];
