@@ -10,7 +10,9 @@
 
 @class SRScenicRoute;
 
-@interface SRRouteTableViewController : UIViewController
+@interface SRRouteTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+    IBOutlet UITableView *_tableView;
+}
 
 @property (strong, nonatomic) SRScenicRoute *route;
 

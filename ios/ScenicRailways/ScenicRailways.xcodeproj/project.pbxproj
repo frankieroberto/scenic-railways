@@ -23,6 +23,9 @@
 		D8B4FE7C162994F000458ECE /* SRScenicRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4FE7B162994EF00458ECE /* SRScenicRoute.m */; };
 		D8B4FE84162998DC00458ECE /* SRRouteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4FE82162998DC00458ECE /* SRRouteTableViewController.m */; };
 		D8B4FE85162998DC00458ECE /* SRRouteTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8B4FE83162998DC00458ECE /* SRRouteTableViewController.xib */; };
+		D8B4FE911629A09200458ECE /* SRRouteEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4FE901629A09200458ECE /* SRRouteEntry.m */; };
+		D8B4FE951629A0AD00458ECE /* SRStation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4FE941629A0AD00458ECE /* SRStation.m */; };
+		D8B4FE981629A2A900458ECE /* SRViewOfInterest.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4FE971629A2A800458ECE /* SRViewOfInterest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,12 @@
 		D8B4FE81162998DC00458ECE /* SRRouteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRRouteTableViewController.h; sourceTree = "<group>"; };
 		D8B4FE82162998DC00458ECE /* SRRouteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRRouteTableViewController.m; sourceTree = "<group>"; };
 		D8B4FE83162998DC00458ECE /* SRRouteTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRRouteTableViewController.xib; sourceTree = "<group>"; };
+		D8B4FE8F1629A09200458ECE /* SRRouteEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRRouteEntry.h; sourceTree = "<group>"; };
+		D8B4FE901629A09200458ECE /* SRRouteEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRRouteEntry.m; sourceTree = "<group>"; };
+		D8B4FE931629A0AD00458ECE /* SRStation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRStation.h; sourceTree = "<group>"; };
+		D8B4FE941629A0AD00458ECE /* SRStation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRStation.m; sourceTree = "<group>"; };
+		D8B4FE961629A2A800458ECE /* SRViewOfInterest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRViewOfInterest.h; sourceTree = "<group>"; };
+		D8B4FE971629A2A800458ECE /* SRViewOfInterest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRViewOfInterest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +119,12 @@
 				D8B4FE81162998DC00458ECE /* SRRouteTableViewController.h */,
 				D8B4FE82162998DC00458ECE /* SRRouteTableViewController.m */,
 				D8B4FE83162998DC00458ECE /* SRRouteTableViewController.xib */,
+				D8B4FE8F1629A09200458ECE /* SRRouteEntry.h */,
+				D8B4FE901629A09200458ECE /* SRRouteEntry.m */,
+				D8B4FE931629A0AD00458ECE /* SRStation.h */,
+				D8B4FE941629A0AD00458ECE /* SRStation.m */,
+				D8B4FE961629A2A800458ECE /* SRViewOfInterest.h */,
+				D8B4FE971629A2A800458ECE /* SRViewOfInterest.m */,
 			);
 			path = ScenicRailways;
 			sourceTree = "<group>";
@@ -203,6 +218,9 @@
 				D8B4FE6E16298E4F00458ECE /* SRDetailViewController.m in Sources */,
 				D8B4FE7C162994F000458ECE /* SRScenicRoute.m in Sources */,
 				D8B4FE84162998DC00458ECE /* SRRouteTableViewController.m in Sources */,
+				D8B4FE911629A09200458ECE /* SRRouteEntry.m in Sources */,
+				D8B4FE951629A0AD00458ECE /* SRStation.m in Sources */,
+				D8B4FE981629A2A900458ECE /* SRViewOfInterest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
