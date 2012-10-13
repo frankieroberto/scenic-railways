@@ -21,3 +21,12 @@ Route.create(:start_station_id => 3, :end_station_id =>4)
 Route.create(:start_station_id => 4, :end_station_id =>5)
 Route.create(:start_station_id => 5, :end_station_id =>6)
 Route.create(:start_station_id => 6, :end_station_id =>7)
+
+<Poi id: 1, name: "Totley Tunnel", description: "It's a very long tunnel", lat: 1.0, lng: 1.0, category: "Tunnel", created_at: "2012-10-13 14:43:30", updated_at: "2012-10-13 14:43:30">,
+
+Poi.create(:name => "Win Hill", :description =>"Shapely peak", :lat =>53.36155, :lng => 1.72198, :category => "Hill")
+Poi.create(:name => "Win Hill", :description =>"Shapely peak", :lat =>53.36155, :lng => 1.72198, :category => "Hill")
+Poi.create(:name => "Lose Hill", :description =>"Shapely peak", :lat =>53.36525, :lng => 1.77154, :category => "Hill")
+
+Voi.create(:lat => 53.339566, :left_side => false, :lng => -1.689345, :metres_from => 50, :poi_id => 2, :route_id => 19) 
+Voi.create(:lat => 53.349507, :left_side => true, :lng => -1.737582, :metres_from => 200, :poi_id => 3, :route_id => 20) 
