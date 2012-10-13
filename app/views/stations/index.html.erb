@@ -1,5 +1,9 @@
-<%= link_to "New Station", new_station_path %>
+<h1>Stations</h1>
 
+<%= link_to "add station", new_station_path %>
+
+<ul>
 <% @stations.each do |station| %>
-  <%= link_to station.name, station %>
+  <li><%= link_to station.name, station %> (<%= station.csr %>)</li>
 <% end %>
+</ul>
