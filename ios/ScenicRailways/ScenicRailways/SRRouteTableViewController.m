@@ -117,6 +117,23 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    SRRouteEntry *entry = _routeEntries[indexPath.row];
+
+    if ([entry isKindOfClass:[SRStation class]]) {
+        static NSString *RouteEntryCellIdentifier = @"RouteEntryCell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:RouteEntryCellIdentifier];
+        if (cell == nil) {
+            [[NSBundle mainBundle] loadNibNamed:@"SRRouteEntryCell" owner:self options:nil];
+            cell = self.entryCell;
+            self.entryCell = nil;
+        }
+        
+        UILabel *nameLabel = (UILabel *)[cell viewWithTag:1];
+        nameLabel.text = entry.name;
+
+        return cell;
+    }
+    
     static NSString *StationCellIdentifier = @"StationCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:StationCellIdentifier];
     if (cell == nil) {
@@ -124,7 +141,6 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    SRRouteEntry *entry = _routeEntries[indexPath.row];
     cell.textLabel.text = entry.name;
     return cell;
 }
