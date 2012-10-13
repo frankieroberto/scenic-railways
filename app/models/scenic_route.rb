@@ -14,7 +14,7 @@ class ScenicRoute < ActiveRecord::Base
           :include => {
             :route => {
               :only => [],
-              :include => [:start_station, :vois => {:include => :poi}]
+              :include => [:start_station, :end_station, :vois => {:include => :poi}]
             }
           }
         }
