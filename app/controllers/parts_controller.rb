@@ -9,7 +9,7 @@ class PartsController < ApplicationController
 
   def new
     find_scenic_route
-    find_scenic_route_part
+    @scenic_route_part = @scenic_route.scenic_route_parts.new
     find_routes
   end
 
