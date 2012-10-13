@@ -10,6 +10,7 @@
 
 #import "SRRouteTableViewController.h"
 
+#import "SRLocationViewController.h"
 #import "SRScenicRoute.h"
 #import "SRStation.h"
 #import "SRViewOfInterest.h"
@@ -109,6 +110,13 @@
     SRRouteEntry *entry = _routeEntries[indexPath.row];
     cell.textLabel.text = entry.name;
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    SRRouteEntry *entry = _routeEntries[indexPath.row];
+    SRLocationViewController *locationViewController = [[SRLocationViewController alloc] initWithNibName:@"SRLocationViewController" bundle:nil];
+    locationViewController.entry = entry;
+    [self.navigationController pushViewController:locationViewController animated:YES];
 }
 
 @end

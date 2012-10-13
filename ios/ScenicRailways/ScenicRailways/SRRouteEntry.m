@@ -10,4 +10,8 @@
 
 @implementation SRRouteEntry
 
+- (NSString *)title {
+    return self.name;
+}
+
 @end

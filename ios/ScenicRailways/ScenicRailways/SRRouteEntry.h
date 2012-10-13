@@ -8,8 +8,9 @@
 
 #import <CoreLocation/CoreLocation.h>
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
-@interface SRRouteEntry : NSObject
+@interface SRRouteEntry : NSObject <MKAnnotation>
 
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *wikipediaURL;
