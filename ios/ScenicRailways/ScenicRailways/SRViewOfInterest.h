@@ -10,4 +10,6 @@
 
 @interface SRViewOfInterest : SRRouteEntry
 
+@property (nonatomic) BOOL leftSide;
+
 @end
