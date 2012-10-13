@@ -2,18 +2,50 @@
 
 <p>
 From: <%= link_to @route.start_station.name, @route.start_station %>
-To: <%= link_to @route.end_station.name, @route.end_station %>
+To: <%= link_to @route.end_station.name, @route.end_station %> sitting on the left
 </p>
-<p>
-<%= @route.vois.each do |voi| %>
-  <%= link_to voi.to_s, voi %>
+<ul>
+<% @route.vois.each do |voi| %>
+  <% if voi.left_side == true %>
+  <li>a view of <%= link_to voi.poi.name, voi.poi %>, at <%= voi.lat %>,<%= voi.lng %></li>
+  <% end %>
 <% end %>
+</ul>
 
+<p>
+From: <%= link_to @route.start_station.name, @route.start_station %>
+To: <%= link_to @route.end_station.name, @route.end_station %> sitting on the right
 </p>
+<ul>
+<% @route.vois.each do |voi| %>
+  <% if voi.left_side == false %>
+  <li>a view of <%= link_to voi.poi.name, voi.poi %>, at <%= voi.lat %>,<%= voi.lng %></li>
+  <% end %>
+<% end %>
+</ul>
 
 <p>
 From: <%= link_to @route.end_station.name, @route.end_station %>
-To: <%= link_to @route.start_station.name, @route.start_station %>
+To: <%= link_to @route.start_station.name, @route.start_station %> sitting on the left
 </p>
+<ul>
+<% @route.vois.each do |voi| %>
+  <% if voi.left_side == false %>
+    <li>a view of <%= link_to voi.poi.name, voi.poi %>, at <%= voi.lat %>,<%= voi.lng %></li>
+  <% end %>
+<% end %>
+</ul>
+
+<p>
+From: <%= link_to @route.end_station.name, @route.end_station %>
+To: <%= link_to @route.start_station.name, @route.start_station %> sitting on the right
+</p>
+<ul>
+<% @route.vois.each do |voi| %>
+  <% if voi.left_side == true %>
+    <li>a view of <%= link_to voi.poi.name, voi.poi %>, at <%= voi.lat %>,<%= voi.lng %></li>
+  <% end %>
+<% end %>
+</ul>
 
 <%= link_to 'edit', edit_route_path(@route) %>
