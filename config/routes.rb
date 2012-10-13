@@ -1,6 +1,8 @@
 ScenicRailways::Application.routes.draw do
 
-  resources :scenic_routes, :only => [:show, :index]
+  resources :scenic_routes, :only => [:show, :index] do
+    resources :parts
+  end
   resources :routes
   resources :stations
 

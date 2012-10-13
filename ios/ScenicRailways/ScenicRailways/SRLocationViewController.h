@@ -12,9 +12,13 @@
 @class SRRouteEntry;
 
 @interface SRLocationViewController : UIViewController {
-    IBOutlet MKMapView *mapView;
+    IBOutlet MKMapView *_mapView;
+    IBOutlet UISegmentedControl *_segmentedControl;
+    IBOutlet UIWebView *_webView;
 }
 
 @property (strong, nonatomic) SRRouteEntry *entry;
+
+- (IBAction)selectionChanged:(id)sender;
 
 @end

@@ -1,3 +1,11 @@
 <h1><%= @scenic_route.name %></h1>
 
 <%= @scenic_route.description %>
+
+<% @scenic_route.scenic_route_parts.all.each do |part| %>
+  <% route = part.route %>
+
+  <%= route.start_station.name %>
+
+
+<% end %>
