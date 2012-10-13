@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  route_id: 1
+  poi_id: 1
+  left_side: false
+  metres_from: 1
+  lat: 1.5
+  lng: 1.5
+  note: MyText
+
+two:
+  route_id: 1
+  poi_id: 1
+  left_side: false
+  metres_from: 1
+  lat: 1.5
+  lng: 1.5
+  note: MyText

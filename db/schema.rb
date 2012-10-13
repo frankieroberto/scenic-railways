@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121013121806) do
+ActiveRecord::Schema.define(:version => 20121013123124) do
 
   create_table "routes", :force => true do |t|
     t.integer  "start_station_id"
@@ -27,6 +27,18 @@ ActiveRecord::Schema.define(:version => 20121013121806) do
     t.float    "lng"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "vois", :force => true do |t|
+    t.integer  "route_id",    :null => false
+    t.integer  "poi_id",      :null => false
+    t.boolean  "left_side",   :null => false
+    t.integer  "metres_from"
+    t.float    "lat",         :null => false
+    t.float    "lng",         :null => false
+    t.text     "note"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end
