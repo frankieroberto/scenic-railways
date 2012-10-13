@@ -1,4 +1,4 @@
-<h1>Route #<%= @route.id %></h1>
+<h1><%= @route.start_station.name %> to <%= @route.end_station.name %></h1>
 
 <p>
 From: <%= link_to @route.start_station.name, @route.start_station %>

@@ -13,7 +13,7 @@ class RoutesController < ApplicationController
   end
 
   def create
-    @route = Route.new(params[:id])
+    @route = Route.new(params[:route])
     if @route.save
       redirect_to route_path(@route)
     else

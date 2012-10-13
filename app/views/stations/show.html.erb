@@ -1,3 +1,6 @@
-<h1><%= @station.name %></h1>
+<h1><%= @station.name %> Station</h1>
+
+<p>CSR code = <%= @station.csr %><p>
+<p><%= @station.lat %>, <%= @station.lng %></p>
 
 <%= link_to "edit", edit_station_path(@station) %>

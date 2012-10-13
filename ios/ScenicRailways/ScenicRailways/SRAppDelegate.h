@@ -6,9 +6,12 @@
 //  Copyright (c) 2012 Joe Hughes. All rights reserved.
 //
 
+#import <CoreLocation/CoreLocation.h>
 #import <UIKit/UIKit.h>
 
-@interface SRAppDelegate : UIResponder <UIApplicationDelegate>
+@interface SRAppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate> {
+    CLLocationManager *_locationManager;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 
