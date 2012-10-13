@@ -1,10 +1,46 @@
 
-body { font-family: 'Gill Sans', sans-serif; font-size: 20px; }
+body {
+  font-family: 'Gill Sans', sans-serif; font-size: 20px;
+  background: url(<%= asset_path 'bedge_grunge.png' %>);
+
+}
+
+.site-header {
+  text-align: center;
+  margin: 2em 0 2em 0;
+
+}
+
+.site-name {
+  font-size: 60px;
+  color: black;
+  text-decoration: none;
+  color: #BF4D28;
+  text-shadow: black  2px 2px 1px;
+  margin: 0;
+}
+
+.tagline {
+  font-size: 28px;
+  margin: 0;
+}
+
+
+article {
+  max-width: 40em;
+  background-color: white;
+  padding: 1.5em 2em 1.5em 2em;
+  margin: 0 auto;
+  border: 3px #777 solid;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
 
 .station a,
 .voi a {
-  color: black;
-  text-decoration: none;
   font-weight: normal;
   font-size: 28px;
 }
@@ -12,4 +48,12 @@ body { font-family: 'Gill Sans', sans-serif; font-size: 20px; }
 .description {
   font-size: 18px;
   color: #777;
+}
+
+h2 {
+  margin: 0 0 .2em 0;
+}
+
+p {
+  margin: 0 0 1em 0;
 }
