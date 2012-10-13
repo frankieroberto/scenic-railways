@@ -34,6 +34,10 @@ class StationsController < ApplicationController
     find_station
     respond_with @station
   end
+  
+  def edit
+    find_station
+  end
 
   def find_station
     @station = Station.find(params[:id])

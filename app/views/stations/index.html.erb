@@ -1,5 +1,5 @@
 <%= link_to "New Station", new_station_path %>
 
 <% @stations.each do |station| %>
-  <%= link_to station.to_s, station %>
+  <%= link_to station.name, station %>
 <% end %>
