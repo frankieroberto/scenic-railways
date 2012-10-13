@@ -1,7 +1,9 @@
-<h1>Route#index</h1>
+<h1>Routes</h1>
 
 <%= link_to 'add route', new_route_path %>
 
+<ul>
 <% @routes.each do |route| %>
-  <%= link_to route.short_name, route %>
+  <li><%= link_to route.short_name, route %></li>
 <% end %>
+</ul>
