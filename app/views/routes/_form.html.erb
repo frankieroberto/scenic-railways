@@ -1,9 +1,9 @@
 <%= form_for route do |form| %>
 
-  <%= form.label :start_station %>
+  <%= form.label :start_station_id %>
   <%= form.collection_select :start_station_id, @stations, :id, :name %>
 
-  <%= form.label :end_station %>
+  <%= form.label :end_station_id %>
   <%= form.collection_select :end_station_id, @stations, :id, :name %>
 
 
