@@ -1,0 +1,28 @@
+<h1><%= link_to @scenic_route.name, scenic_route_path(@scenic_route) %> <em>in reverse</em></h1>
+
+<p><%= @scenic_route.description %></p>
+
+<% @scenic_route.scenic_route_parts.order('scenic_route_parts.order DESC').each do |part| %>
+  <% route = part.route %>
+  <h2 class="station"><%= image_tag('national-rail.png') %> <%= link_to route.end_station.name, route.end_station %></h2>
+  <% part.route.vois.each do |voi| %>
+    <% poi = voi.poi %>
+    <h2 class="voi"><%= link_to poi.name, poi_path(poi) %></h2>
+
+    <div class="meta">
+      <p>Visible on the <em><%= voi.left_side? ? "left" : "right" %></em>.</p>
+
+      <p class="description"><%= poi.description %></p>
+    </div>
+
+  <% end %>
+<% end %>
+
+<% last_route = @scenic_route.scenic_route_parts.order('scenic_route_parts.order').first %>
+
+<% if last_route %>
+
+<h2 class="station"><%= image_tag('national-rail.png') %> <%= link_to last_route.route.start_station.name, last_route.route.start_station %></h2>
+
+<% end %>
+<%#= link_to 'new section', new_scenic_route_part_path(@scenic_route) %>

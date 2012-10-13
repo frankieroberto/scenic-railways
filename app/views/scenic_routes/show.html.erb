@@ -1,9 +1,11 @@
+<%= link_to "Reverse", scenic_route_reverse_path(@scenic_route), :class => "reverse" %>
+
 <h1><%= @scenic_route.name %></h1>
 
 <p><%= @scenic_route.description %></p>
 
 
-<% @scenic_route.scenic_route_parts.all.each do |part| %>
+<% @scenic_route.scenic_route_parts.order('scenic_route_parts.order').each do |part| %>
   <% route = part.route %>
   <h2 class="station"><%= image_tag('national-rail.png') %> <%= link_to route.start_station.name, route.start_station %></h2>
   <% part.route.vois.each do |voi| %>
