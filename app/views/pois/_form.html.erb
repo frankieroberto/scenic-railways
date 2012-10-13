@@ -1,0 +1,21 @@
+<%= form_for @poi do |form| %>
+
+  <div>
+    <%= form.text_field :name, :placeholder => "Name", :required => true %>
+  </div>
+
+  <%= form.text_area :description, :placeholder => "Description", :required => true %>
+
+  <fieldset>
+    <legend>Location</legend>
+    <%= form.text_field :lat, :placeholder => "Latitude", :required => true %>
+    <%= form.text_field :lng, :placeholder => "Longititude", :required => true %>
+  </fieldset>
+
+  <div>
+    <%= form.text_field :category, :placeholder => "Category", :required => true %>
+  </div>
+
+  <%= form.submit %>
+
+<% end %>

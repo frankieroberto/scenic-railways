@@ -4,6 +4,8 @@ ScenicRailways::Application.routes.draw do
   resources :routes
   resources :stations
 
+  resources :pois
+
   root :to => 'homepage#show'
 
 
