@@ -20,12 +20,14 @@
     var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
     var osmAttrib='Map data © OpenStreetMap contributors';
     var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 12, attribution: osmAttrib});   
-    map.setView(new L.LatLng(53.3, -1.47),9);
     map.addLayer(osm);
-
-    $.getJSON('/scenic_routes/1.json', function(data) {
+    
+    actualID = <%= params[:scenic_route_id] %>
+    $.getJSON('/scenic_routes/'+actualID+'.json', function(data) {
 
         parts = data.scenic_route_parts;
+        map.setView(new L.LatLng(parts[0].route.start_station.lat, parts[0].route.start_station.lng),9);
+
         $.each(parts, function(key, val) {
 
             lat = parts[key].route.start_station.lat;
@@ -35,13 +37,6 @@
             L.marker([lat, lng]).addTo(map).bindPopup("<b>" + name + "</b>");
             });
         });
-    /*
-    lat = parts[key].route.end_station.lat;
-    lng = parts[key].route.end_station.lng;
-    name = parts[key].route.end_station.name;
-
-    L.marker([lat, lng]).addTo(map).bindPopup("<b>" + name + "</b>");
-    */
   } 
 </script>
 <script>
@@ -50,6 +45,7 @@
    });
 </script>
 <% end %>
+
 
 <div id="map"  style="width:700px;height:400px;"> </div>
 
