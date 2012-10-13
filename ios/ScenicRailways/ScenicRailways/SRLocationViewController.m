@@ -41,6 +41,7 @@
 
 - (void)updateView {
     self.title = _entry.name;
+    _nameLabel.text = _entry.name;
     
     NSArray *oldAnnotations = [_mapView.annotations copy];
     for (id<MKAnnotation> annotation in oldAnnotations) {
@@ -67,10 +68,10 @@
 - (IBAction)selectionChanged:(id)sender {
     int selection = _segmentedControl.selectedSegmentIndex;
     if (selection == 0) {
-        _mapView.hidden = NO;
+        _mapPanel.hidden = NO;
         _webView.hidden = YES;
     } else {
-        _mapView.hidden = YES;
+        _mapPanel.hidden = YES;
         _webView.hidden = NO;
     }
 }

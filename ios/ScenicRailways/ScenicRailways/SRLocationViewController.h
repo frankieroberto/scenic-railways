@@ -15,6 +15,9 @@
     IBOutlet MKMapView *_mapView;
     IBOutlet UISegmentedControl *_segmentedControl;
     IBOutlet UIWebView *_webView;
+    IBOutlet UIView *_mapPanel;
+    IBOutlet UILabel *_nameLabel;
+    IBOutlet UILabel *_distanceLabel;
 }
 
 @property (strong, nonatomic) SRRouteEntry *entry;
