@@ -4,11 +4,7 @@ class StationsController < ApplicationController
 
   def index
     @stations = Station.all
-    
-    respond_to do |format|
-      format.html  # index.html.erb
-      format.json  { render :json => @stations }
-    end
+    respond_with @stations
   end
 
   def new
