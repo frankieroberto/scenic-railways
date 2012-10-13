@@ -21,6 +21,10 @@
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
+    
+    _locationManager = [[CLLocationManager alloc] init];
+    [_locationManager startUpdatingLocation];
+    
     return YES;
 }
 
@@ -49,6 +53,12 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    NSLog(@"Locations: %@", locations[0]);
 }
 
 @end
