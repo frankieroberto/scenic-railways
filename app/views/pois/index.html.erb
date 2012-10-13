@@ -1,0 +1,5 @@
+<%= link_to "New POI", new_poi_path %>
+
+<% @pois.each do |poi| %>
+  <%= link_to poi.name, poi %>
+<% end %>
