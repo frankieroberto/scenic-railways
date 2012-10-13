@@ -1,0 +1,14 @@
+<%= form_for scenic_route_part do |form| %>
+
+  <div>
+    <%= form.label :order %>
+    <%= form.number_field :order %>
+  </div>
+
+  <div>
+    <%= form.collection_select :route_id, @routes, :id, :short_name %>
+  </div>
+
+  <%= form.submit %>
+
+<% end %>

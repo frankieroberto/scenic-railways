@@ -1,0 +1,7 @@
+<h1>Sections of <%= @scenic_route.name %></h1>
+
+<% @scenic_route.scenic_route_parts.each do |part| %>
+<p><%= part.order %> <%= part.route.short_name %> <%= link_to 'edit', edit_scenic_route_part_path(@scenic_route, part) %></p>
+<% end %>
+
+<%= link_to "Add new section", new_scenic_route_part_path(@scenic_route) %>
