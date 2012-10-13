@@ -8,6 +8,7 @@
 
 #import "SRMasterViewController.h"
 
+#import "AFJSONRequestOperation.h"
 #import "SRRouteTableViewController.h"
 #import "SRScenicRoute.h"
 
@@ -29,18 +30,35 @@
 }
 
 - (void)startDataLoad {
-    NSLog(@"TODO: Actually load some data");
-    [self receivedDataUpdate];
+    NSURL *url = [NSURL URLWithString:@"http://www.scenicrailways.org.uk/scenic_routes.json"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        [self receivedDataUpdate:JSON];
+    } failure:nil];
+    
+    [operation start];
 }
 
-- (void)receivedDataUpdate {
+- (void)receivedDataUpdate:(id)JSON {
     [_objects removeAllObjects];
-    SRScenicRoute *sampleRoute = [[SRScenicRoute alloc] init];
-    sampleRoute.name = @"Hope Valley Line";
-    sampleRoute.routeId = @"hvl";
-    sampleRoute.description = @"Sheffield - Manchester";
-    sampleRoute.segments = [NSMutableArray array];
-    [_objects addObject:sampleRoute];
+    if (JSON) {
+        for (NSDictionary *routeDict in JSON) {
+            SRScenicRoute *route = [[SRScenicRoute alloc] init];
+            route.name = routeDict[@"name"];
+            route.routeId = routeDict[@"id"];
+            route.description = routeDict[@"description"];
+            [_objects addObject:route];
+        }
+    } else {
+        // Sample data
+        SRScenicRoute *sampleRoute = [[SRScenicRoute alloc] init];
+        sampleRoute.name = @"Hope Valley Line";
+        sampleRoute.routeId = @"hvl";
+        sampleRoute.description = @"Sheffield - Manchester";
+        sampleRoute.segments = [NSMutableArray array];
+        [_objects addObject:sampleRoute];
+    }
     [self.tableView reloadData];
 }
 							
