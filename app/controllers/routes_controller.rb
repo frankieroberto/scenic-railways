@@ -28,6 +28,7 @@ class RoutesController < ApplicationController
 
   def show
     @route = Route.find(params[:id])
+    respond_with @route
   end
 
   def update

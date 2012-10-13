@@ -6,14 +6,18 @@ To: <%= link_to @route.end_station.name, @route.end_station %>
 </p>
 <p>
 <%= @route.vois.each do |voi| %>
-  <%= link_to voi.to_s, voi %>
+  <%= link_to voi.poi.name, voi.poi %>
 <% end %>
-
 </p>
 
 <p>
 From: <%= link_to @route.end_station.name, @route.end_station %>
 To: <%= link_to @route.start_station.name, @route.start_station %>
+</p>
+<p>
+<%= @route.vois.each do |voi| %>
+  <%= link_to voi.poi.name, voi.poi %>
+<% end %>
 </p>
 
 <%= link_to 'edit', edit_route_path(@route) %>
