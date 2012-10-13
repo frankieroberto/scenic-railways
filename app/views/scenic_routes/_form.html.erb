@@ -1,0 +1,11 @@
+<%= form_for scenic_route do |form| %>
+
+  <div>
+    <%= form.text_field :name, :placeholder => "Name" %>
+  </div>
+
+  <%= form.text_area :description %>
+
+  <%= form.submit %>
+
+<% end %>
