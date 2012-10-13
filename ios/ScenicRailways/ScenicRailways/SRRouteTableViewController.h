@@ -15,5 +15,6 @@
 }
 
 @property (strong, nonatomic) SRScenicRoute *route;
+@property (strong, nonatomic) IBOutlet UITableViewCell *entryCell;
 
 @end
