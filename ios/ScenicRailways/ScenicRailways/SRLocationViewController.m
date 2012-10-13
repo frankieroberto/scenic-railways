@@ -33,6 +33,19 @@
     [self updateView];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationUpdate:) name:@"LocationUpdate" object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)locationUpdate:(id)update {
+    CLLocation *location = [update userInfo][@"location"];
+    _distanceLabel.text = [NSString stringWithFormat:@"Your Location: %.6f, %.6f", location.coordinate.latitude, location.coordinate.longitude];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
