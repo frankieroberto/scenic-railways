@@ -8,7 +8,7 @@
 
 #import "SRMasterViewController.h"
 
-#import "SRDetailViewController.h"
+#import "SRRouteTableViewController.h"
 #import "SRScenicRoute.h"
 
 @interface SRMasterViewController () {
@@ -37,6 +37,7 @@
     [_objects removeAllObjects];
     SRScenicRoute *sampleRoute = [[SRScenicRoute alloc] init];
     sampleRoute.name = @"Hope Valley Line";
+    sampleRoute.routeId = @"hvl";
     sampleRoute.description = @"Sheffield - Manchester";
     sampleRoute.segments = [NSMutableArray array];
     [_objects addObject:sampleRoute];
@@ -46,6 +47,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.navigationItem setBackBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Home"
+                                                                                style:UIBarButtonItemStylePlain
+                                                                               target:nil
+                                                                               action:nil]];
 
     [self startDataLoad];
 }
@@ -116,14 +121,10 @@
 }
 */
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (!self.detailViewController) {
-        self.detailViewController = [[SRDetailViewController alloc] initWithNibName:@"SRDetailViewController" bundle:nil];
-    }
-    NSDate *object = _objects[indexPath.row];
-    self.detailViewController.detailItem = object;
-    [self.navigationController pushViewController:self.detailViewController animated:YES];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    SRRouteTableViewController *routeTableViewController = [[SRRouteTableViewController alloc] initWithNibName:@"SRRouteTableViewController" bundle:nil];
+    routeTableViewController.route = _objects[indexPath.row];
+    [self.navigationController pushViewController:routeTableViewController animated:YES];
 }
 
 @end

@@ -21,6 +21,8 @@
 		D8B4FE7116298E4F00458ECE /* SRMasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8B4FE6F16298E4F00458ECE /* SRMasterViewController.xib */; };
 		D8B4FE7416298E4F00458ECE /* SRDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8B4FE7216298E4F00458ECE /* SRDetailViewController.xib */; };
 		D8B4FE7C162994F000458ECE /* SRScenicRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4FE7B162994EF00458ECE /* SRScenicRoute.m */; };
+		D8B4FE84162998DC00458ECE /* SRRouteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4FE82162998DC00458ECE /* SRRouteTableViewController.m */; };
+		D8B4FE85162998DC00458ECE /* SRRouteTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8B4FE83162998DC00458ECE /* SRRouteTableViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,9 @@
 		D8B4FE7316298E4F00458ECE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SRDetailViewController.xib; sourceTree = "<group>"; };
 		D8B4FE7A162994EF00458ECE /* SRScenicRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRScenicRoute.h; sourceTree = "<group>"; };
 		D8B4FE7B162994EF00458ECE /* SRScenicRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRScenicRoute.m; sourceTree = "<group>"; };
+		D8B4FE81162998DC00458ECE /* SRRouteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRRouteTableViewController.h; sourceTree = "<group>"; };
+		D8B4FE82162998DC00458ECE /* SRRouteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRRouteTableViewController.m; sourceTree = "<group>"; };
+		D8B4FE83162998DC00458ECE /* SRRouteTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRRouteTableViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +107,9 @@
 				D8B4FE5816298E4F00458ECE /* Supporting Files */,
 				D8B4FE7A162994EF00458ECE /* SRScenicRoute.h */,
 				D8B4FE7B162994EF00458ECE /* SRScenicRoute.m */,
+				D8B4FE81162998DC00458ECE /* SRRouteTableViewController.h */,
+				D8B4FE82162998DC00458ECE /* SRRouteTableViewController.m */,
+				D8B4FE83162998DC00458ECE /* SRRouteTableViewController.xib */,
 			);
 			path = ScenicRailways;
 			sourceTree = "<group>";
@@ -178,6 +186,7 @@
 				D8B4FE6816298E4F00458ECE /* Default-568h@2x.png in Resources */,
 				D8B4FE7116298E4F00458ECE /* SRMasterViewController.xib in Resources */,
 				D8B4FE7416298E4F00458ECE /* SRDetailViewController.xib in Resources */,
+				D8B4FE85162998DC00458ECE /* SRRouteTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +202,7 @@
 				D8B4FE6B16298E4F00458ECE /* SRMasterViewController.m in Sources */,
 				D8B4FE6E16298E4F00458ECE /* SRDetailViewController.m in Sources */,
 				D8B4FE7C162994F000458ECE /* SRScenicRoute.m in Sources */,
+				D8B4FE84162998DC00458ECE /* SRRouteTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +326,7 @@
 				D8B4FE7916298E4F00458ECE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

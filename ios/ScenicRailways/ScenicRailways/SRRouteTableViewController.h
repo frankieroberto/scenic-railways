@@ -1,5 +1,5 @@
 //
-//  SRMasterViewController.h
+//  SRRouteTable.h
 //  ScenicRailways
 //
 //  Created by Joe Hughes on 13/10/2012.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class SRDetailViewController;
+@class SRScenicRoute;
 
-@interface SRMasterViewController : UITableViewController
+@interface SRRouteTableViewController : UIViewController
+
+@property (strong, nonatomic) SRScenicRoute *route;
 
 @end
