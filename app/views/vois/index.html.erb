@@ -1,0 +1,12 @@
+<h1>VOIs</h1>
+
+<%= link_to "New VOI", new_voi_path %>
+
+<table>
+  <% @vois.each do |voi| %>
+    <tr>
+      <td><%= link_to voi.id, voi_path(voi) %></td>
+      <td><%= link_to "edit", edit_voi_path(voi) %></td>
+    </tr>
+  <% end %>
+</table>

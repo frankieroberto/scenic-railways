@@ -1,13 +1,36 @@
 class RoutesController < ApplicationController
+
   def index
+    @routes = Route.all
   end
-  
+
   def new
+    @route = Route.new
+    @stations = Station.order(:name)
   end
 
   def create
+    @route = Route.new(params[:id])
+    if @route.save
+      redirect_to route_path(@route)
+    else
+      render 'new'
+    end
   end
 
   def edit
+    @route = Route.find(params[:id])
+    @stations = Station.order(:name)
   end
+
+  def show
+    @route = Route.find(params[:id])
+  end
+
+  def update
+    @route = Route.find(params[:id])
+    @route.update_attributes(params[:route])
+    redirect_to route_path(@route)
+  end
+
 end
