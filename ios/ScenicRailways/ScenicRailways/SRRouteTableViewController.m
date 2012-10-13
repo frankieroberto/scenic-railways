@@ -62,9 +62,6 @@
 - (void)processLoadedData {
     [_routeEntries removeAllObjects];
     
-    
-    // http://en.wikipedia.org/wiki/Special:Search/Totley_Tunnel
-    
     SRStation *sheffield = [[SRStation alloc] init];
     sheffield.name = @"Sheffield";
     sheffield.wikipediaURL = @"http://en.wikipedia.org/wiki/Sheffield_station";
