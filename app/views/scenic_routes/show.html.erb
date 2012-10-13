@@ -15,4 +15,11 @@
   <% end %>
 <% end %>
 
+<% last_route = @scenic_route.scenic_route_parts.order('scenic_route_parts.order').last %>
+
+<% if last_route %>
+
+<h2 class="station"><%= image_tag('national-rail.png') %> <%= link_to last_route.route.end_station.name, last_route.route.end_station %></h2>
+
+<% end %>
 <%#= link_to 'new section', new_scenic_route_part_path(@scenic_route) %>
