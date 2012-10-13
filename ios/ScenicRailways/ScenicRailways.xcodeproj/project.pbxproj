@@ -35,6 +35,11 @@
 		D8B4FEB71629A55400458ECE /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4FEAC1629A55400458ECE /* AFURLConnectionOperation.m */; };
 		D8B4FEB81629A55400458ECE /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4FEAE1629A55400458ECE /* AFXMLRequestOperation.m */; };
 		D8B4FEB91629A55400458ECE /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4FEB01629A55400458ECE /* UIImageView+AFNetworking.m */; };
+		D8B4FEBC1629A95600458ECE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B4FEBB1629A95600458ECE /* CoreLocation.framework */; };
+		D8B4FEC51629A9FE00458ECE /* SRLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4FEC31629A9FE00458ECE /* SRLocationViewController.m */; };
+		D8B4FEC61629A9FE00458ECE /* SRLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8B4FEC41629A9FE00458ECE /* SRLocationViewController.xib */; };
+		D8B4FEC81629AA3C00458ECE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B4FEC71629AA3C00458ECE /* MapKit.framework */; };
+		D8B4FECB1629ACD200458ECE /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4FECA1629ACD200458ECE /* MKMapView+ZoomLevel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +92,13 @@
 		D8B4FEAE1629A55400458ECE /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		D8B4FEAF1629A55400458ECE /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		D8B4FEB01629A55400458ECE /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		D8B4FEBB1629A95600458ECE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D8B4FEC21629A9FE00458ECE /* SRLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRLocationViewController.h; sourceTree = "<group>"; };
+		D8B4FEC31629A9FE00458ECE /* SRLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRLocationViewController.m; sourceTree = "<group>"; };
+		D8B4FEC41629A9FE00458ECE /* SRLocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRLocationViewController.xib; sourceTree = "<group>"; };
+		D8B4FEC71629AA3C00458ECE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D8B4FEC91629ACD100458ECE /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
+		D8B4FECA1629ACD200458ECE /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +106,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8B4FEC81629AA3C00458ECE /* MapKit.framework in Frameworks */,
+				D8B4FEBC1629A95600458ECE /* CoreLocation.framework in Frameworks */,
 				D8B4FE5216298E4F00458ECE /* UIKit.framework in Frameworks */,
 				D8B4FE5416298E4F00458ECE /* Foundation.framework in Frameworks */,
 				D8B4FE5616298E4F00458ECE /* CoreGraphics.framework in Frameworks */,
@@ -123,9 +137,11 @@
 		D8B4FE5016298E4F00458ECE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D8B4FE5116298E4F00458ECE /* UIKit.framework */,
-				D8B4FE5316298E4F00458ECE /* Foundation.framework */,
 				D8B4FE5516298E4F00458ECE /* CoreGraphics.framework */,
+				D8B4FEBB1629A95600458ECE /* CoreLocation.framework */,
+				D8B4FE5316298E4F00458ECE /* Foundation.framework */,
+				D8B4FEC71629AA3C00458ECE /* MapKit.framework */,
+				D8B4FE5116298E4F00458ECE /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -142,7 +158,6 @@
 				D8B4FE6D16298E4F00458ECE /* SRDetailViewController.m */,
 				D8B4FE6F16298E4F00458ECE /* SRMasterViewController.xib */,
 				D8B4FE7216298E4F00458ECE /* SRDetailViewController.xib */,
-				D8B4FE5816298E4F00458ECE /* Supporting Files */,
 				D8B4FE7A162994EF00458ECE /* SRScenicRoute.h */,
 				D8B4FE7B162994EF00458ECE /* SRScenicRoute.m */,
 				D8B4FE81162998DC00458ECE /* SRRouteTableViewController.h */,
@@ -154,6 +169,12 @@
 				D8B4FE941629A0AD00458ECE /* SRStation.m */,
 				D8B4FE961629A2A800458ECE /* SRViewOfInterest.h */,
 				D8B4FE971629A2A800458ECE /* SRViewOfInterest.m */,
+				D8B4FE5816298E4F00458ECE /* Supporting Files */,
+				D8B4FEC21629A9FE00458ECE /* SRLocationViewController.h */,
+				D8B4FEC31629A9FE00458ECE /* SRLocationViewController.m */,
+				D8B4FEC41629A9FE00458ECE /* SRLocationViewController.xib */,
+				D8B4FEC91629ACD100458ECE /* MKMapView+ZoomLevel.h */,
+				D8B4FECA1629ACD200458ECE /* MKMapView+ZoomLevel.m */,
 			);
 			path = ScenicRailways;
 			sourceTree = "<group>";
@@ -257,6 +278,7 @@
 				D8B4FE7116298E4F00458ECE /* SRMasterViewController.xib in Resources */,
 				D8B4FE7416298E4F00458ECE /* SRDetailViewController.xib in Resources */,
 				D8B4FE85162998DC00458ECE /* SRRouteTableViewController.xib in Resources */,
+				D8B4FEC61629A9FE00458ECE /* SRLocationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +307,8 @@
 				D8B4FEB71629A55400458ECE /* AFURLConnectionOperation.m in Sources */,
 				D8B4FEB81629A55400458ECE /* AFXMLRequestOperation.m in Sources */,
 				D8B4FEB91629A55400458ECE /* UIImageView+AFNetworking.m in Sources */,
+				D8B4FEC51629A9FE00458ECE /* SRLocationViewController.m in Sources */,
+				D8B4FECB1629ACD200458ECE /* MKMapView+ZoomLevel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,15 @@
+<%= form_for @station do |form| %>
+
+  <div>
+    <%= form.text_field :name, :placeholder => "Name", :required => true %>
+  </div>
+
+  <fieldset>
+    <legend>Location</legend>
+    <%= form.text_field :lat, :placeholder => "Latitude", :required => true %>
+    <%= form.text_field :lng, :placeholder => "Longitude", :required => true %>
+  </fieldset>
+
+  <%= form.submit %>
+
+<% end %>

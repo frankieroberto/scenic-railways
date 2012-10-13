@@ -6,8 +6,11 @@
 //  Copyright (c) 2012 Joe Hughes. All rights reserved.
 //
 
+#import <CoreLocation/CoreLocation.h>
+
 #import "SRRouteTableViewController.h"
 
+#import "SRLocationViewController.h"
 #import "SRScenicRoute.h"
 #import "SRStation.h"
 #import "SRViewOfInterest.h"
@@ -61,6 +64,8 @@
     
     SRStation *sheffield = [[SRStation alloc] init];
     sheffield.name = @"Sheffield";
+    sheffield.wikipediaURL = @"http://en.wikipedia.org/wiki/Sheffield_station";
+    sheffield.coordinate = CLLocationCoordinate2DMake(53.378, -1.462);
     [_routeEntries addObject:sheffield];
     
     SRViewOfInterest *totleyTunnel = [[SRViewOfInterest alloc] init];
@@ -105,6 +110,13 @@
     SRRouteEntry *entry = _routeEntries[indexPath.row];
     cell.textLabel.text = entry.name;
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    SRRouteEntry *entry = _routeEntries[indexPath.row];
+    SRLocationViewController *locationViewController = [[SRLocationViewController alloc] initWithNibName:@"SRLocationViewController" bundle:nil];
+    locationViewController.entry = entry;
+    [self.navigationController pushViewController:locationViewController animated:YES];
 }
 
 @end
