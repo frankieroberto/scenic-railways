@@ -1,2 +1,3 @@
-<h1>Station#index</h1>
-<p>Find me in app/views/station/index.html.erb</p>
+<% @stations.each do |station| %>
+    <%= station.to_s %>
+  <% end %>
