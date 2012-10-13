@@ -20,6 +20,7 @@
 		D8B4FE6E16298E4F00458ECE /* SRDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4FE6D16298E4F00458ECE /* SRDetailViewController.m */; };
 		D8B4FE7116298E4F00458ECE /* SRMasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8B4FE6F16298E4F00458ECE /* SRMasterViewController.xib */; };
 		D8B4FE7416298E4F00458ECE /* SRDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8B4FE7216298E4F00458ECE /* SRDetailViewController.xib */; };
+		D8B4FE7C162994F000458ECE /* SRScenicRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4FE7B162994EF00458ECE /* SRScenicRoute.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,8 @@
 		D8B4FE6D16298E4F00458ECE /* SRDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRDetailViewController.m; sourceTree = "<group>"; };
 		D8B4FE7016298E4F00458ECE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SRMasterViewController.xib; sourceTree = "<group>"; };
 		D8B4FE7316298E4F00458ECE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SRDetailViewController.xib; sourceTree = "<group>"; };
+		D8B4FE7A162994EF00458ECE /* SRScenicRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRScenicRoute.h; sourceTree = "<group>"; };
+		D8B4FE7B162994EF00458ECE /* SRScenicRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRScenicRoute.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +100,8 @@
 				D8B4FE6F16298E4F00458ECE /* SRMasterViewController.xib */,
 				D8B4FE7216298E4F00458ECE /* SRDetailViewController.xib */,
 				D8B4FE5816298E4F00458ECE /* Supporting Files */,
+				D8B4FE7A162994EF00458ECE /* SRScenicRoute.h */,
+				D8B4FE7B162994EF00458ECE /* SRScenicRoute.m */,
 			);
 			path = ScenicRailways;
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 				D8B4FE6216298E4F00458ECE /* SRAppDelegate.m in Sources */,
 				D8B4FE6B16298E4F00458ECE /* SRMasterViewController.m in Sources */,
 				D8B4FE6E16298E4F00458ECE /* SRDetailViewController.m in Sources */,
+				D8B4FE7C162994F000458ECE /* SRScenicRoute.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
