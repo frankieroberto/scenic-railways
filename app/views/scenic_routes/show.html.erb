@@ -1,6 +1,7 @@
 <h1><%= @scenic_route.name %></h1>
 
-<%= @scenic_route.description %>
+<p><%= @scenic_route.description %></p>
+
 
 <% @scenic_route.scenic_route_parts.all.each do |part| %>
   <% route = part.route %>
@@ -8,9 +9,12 @@
   <% part.route.vois.each do |voi| %>
     <% poi = voi.poi %>
     <h2 class="voi"><%= link_to poi.name, poi_path(poi) %></h2>
-    <p>Visible on the <em><%= voi.left_side? ? "left" : "right" %></em>.</p>
 
-    <p class="description"><%= poi.description %></p>
+    <div class="meta">
+      <p>Visible on the <em><%= voi.left_side? ? "left" : "right" %></em>.</p>
+
+      <p class="description"><%= poi.description %></p>
+    </div>
 
   <% end %>
 <% end %>
