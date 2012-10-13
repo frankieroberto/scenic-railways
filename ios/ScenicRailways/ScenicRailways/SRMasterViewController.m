@@ -9,6 +9,7 @@
 #import "SRMasterViewController.h"
 
 #import "SRDetailViewController.h"
+#import "SRScenicRoute.h"
 
 @interface SRMasterViewController () {
     NSMutableArray *_objects;
@@ -21,35 +22,38 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"Master", @"Master");
+        self.title = NSLocalizedString(@"Scenic Railways", nil);
+        _objects = [NSMutableArray array];
     }
     return self;
+}
+
+- (void)startDataLoad {
+    NSLog(@"TODO: Actually load some data");
+    [self receivedDataUpdate];
+}
+
+- (void)receivedDataUpdate {
+    [_objects removeAllObjects];
+    SRScenicRoute *sampleRoute = [[SRScenicRoute alloc] init];
+    sampleRoute.name = @"Hope Valley Line";
+    sampleRoute.description = @"Sheffield - Manchester";
+    sampleRoute.segments = [NSMutableArray array];
+    [_objects addObject:sampleRoute];
+    [self.tableView reloadData];
 }
 							
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+    [self startDataLoad];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)insertNewObject:(id)sender
-{
-    if (!_objects) {
-        _objects = [[NSMutableArray alloc] init];
-    }
-    [_objects insertObject:[NSDate date] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - Table View
@@ -68,16 +72,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
 
-
-    NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    SRScenicRoute *route = _objects[indexPath.row];
+    cell.textLabel.text = route.name;
+    cell.detailTextLabel.text = route.description;
     return cell;
 }
 

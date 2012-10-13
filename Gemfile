@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 gem 'unicorn'
 gem 'pg'
+gem 'sqlite3'
 gem 'foreman'
 gem 'heroku'
 

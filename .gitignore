@@ -17,3 +17,5 @@ config/database.yml
 .rvmrc
 .env
 .DS_Store
+
+*.sqlite3
