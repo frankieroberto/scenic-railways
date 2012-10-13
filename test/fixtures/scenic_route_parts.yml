@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  route_id: 1
+  scenic_route_id: 1
+  order: 1
+
+two:
+  route_id: 1
+  scenic_route_id: 1
+  order: 1
