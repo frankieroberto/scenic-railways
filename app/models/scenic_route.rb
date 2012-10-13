@@ -3,4 +3,5 @@ class ScenicRoute < ActiveRecord::Base
 
   has_many :scenic_route_parts
 
+
 end
