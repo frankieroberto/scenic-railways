@@ -1,0 +1,10 @@
+<h1>A view of <%= @voi.poi.name %></h1>
+
+<p>From between <%= link_to @voi.route.start_station.name, @voi.route.start_station %> and <%= link_to @voi.route.end_station.name, @voi.route.end_station %></p>
+
+<p>It's <%= @voi.left_side ? "on the left" : "on the right" %>, approx <%= pluralize(@voi.metres_from, "metres") %> after <%= @voi.route.start_station.name %>.</p>
+
+<p><strong>NOTE</strong>: <%= @voi.note %></p>
+
+
+<%= link_to "EDIT", edit_voi_path(@voi) %>

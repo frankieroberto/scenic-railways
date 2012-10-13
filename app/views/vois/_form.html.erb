@@ -1,0 +1,33 @@
+<%= form_for @voi do |form| %>
+
+  <div>
+    <%= form.label :route_id, "Route" %>
+    <%= form.collection_select :route_id, @routes, :id, :short_name %>
+  </div>
+
+  <div>
+    <%= form.label :poi_id, "POI" %>
+    <%= form.collection_select :poi_id, @pois, :id, :name %>
+  </div>
+
+  <div>
+    <%= form.label :left_side, "on the left?" %>
+    <%= form.check_box :left_side %>
+  </div>
+
+  <div>
+    <%= form.label :metres_from, "Approx metres from start station" %>
+    <%= form.number_field :metres_from %>
+  </div>
+
+  <fieldset>
+    <legend>Location (along the track) </legend>
+    <%= form.text_field :lat, :placeholder => "Latitude", :required => true %>
+    <%= form.text_field :lng, :placeholder => "Longititude", :required => true %>
+  </fieldset>
+
+  <%= form.text_area :note, :placeholder => "Notes about the view." %>
+
+  <%= form.submit %>
+
+<% end %>

@@ -1,0 +1,7 @@
+<h1>Route #<%= @route.id %></h1>
+
+From: <%= link_to @route.start_station.name, @route.start_station %>
+To: <%= link_to @route.end_station.name, @route.end_station %>
+
+
+<%= link_to 'edit', edit_route_path(@route) %>

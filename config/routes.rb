@@ -5,6 +5,7 @@ ScenicRailways::Application.routes.draw do
   resources :stations
 
   resources :pois
+  resources :vois
 
   root :to => 'homepage#show'
 
