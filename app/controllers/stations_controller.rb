@@ -4,8 +4,15 @@ class StationsController < ApplicationController
     @station = Station.find(params[:id])
   end
   def index
+
     @stations = Station.all
-    respond_with @station
+    
+    respond_to do |format|
+      format.html  # index.html.erb
+      format.json  { render :json => @stations }
+    end
+
+
   end
 end
 
