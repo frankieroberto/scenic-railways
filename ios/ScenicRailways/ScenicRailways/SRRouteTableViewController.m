@@ -99,6 +99,8 @@
             for (NSDictionary *voiDict in vois) {
                 SRViewOfInterest *voi = [[SRViewOfInterest alloc] init];
 
+                voi.description = voiDict[@"poi"][@"description"];
+                voi.leftSide = [voiDict[@"left_side"] boolValue];
                 voi.name = voiDict[@"poi"][@"name"];
                 voi.coordinate = CLLocationCoordinate2DMake([voiDict[@"poi"][@"lat"] doubleValue], [voiDict[@"poi"][@"lng"] doubleValue]);
                 [_routeEntries addObject:voi];
@@ -180,7 +182,19 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    cell.textLabel.text = entry.name;
+    NSString *name = entry.name;
+    if ([entry isKindOfClass:[SRViewOfInterest class]]) {
+        BOOL isLeft = ((SRViewOfInterest *)entry).leftSide;
+        if (isLeft) {
+            cell.textLabel.textAlignment = NSTextAlignmentLeft;
+            name = [NSString stringWithFormat:@"\u21E0 %@", name];
+        } else {
+            cell.textLabel.textAlignment = NSTextAlignmentRight;
+            name = [NSString stringWithFormat:@"%@ \u21E2", name];
+        }
+    }
+    
+    cell.textLabel.text = name;
     return cell;
 }
 

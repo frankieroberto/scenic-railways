@@ -2,6 +2,7 @@ ScenicRailways::Application.routes.draw do
 
   resources :scenic_routes do
     resources :parts
+    resource :reverse, :only => [:show], :controller => 'reverse'
     resource :map, :controller=>"map"
   end
   resources :routes

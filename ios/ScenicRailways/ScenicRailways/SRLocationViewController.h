@@ -18,6 +18,7 @@
     IBOutlet UIView *_mapPanel;
     IBOutlet UILabel *_nameLabel;
     IBOutlet UILabel *_distanceLabel;
+    IBOutlet UILabel *_descriptionLabel;
 }
 
 @property (strong, nonatomic) SRRouteEntry *entry;

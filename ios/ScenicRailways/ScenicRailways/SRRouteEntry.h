@@ -13,6 +13,7 @@
 @interface SRRouteEntry : NSObject <MKAnnotation>
 
 @property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *description;
 @property (strong, nonatomic) NSString *wikipediaURL;
 @property (nonatomic) CLLocationCoordinate2D coordinate;
 
