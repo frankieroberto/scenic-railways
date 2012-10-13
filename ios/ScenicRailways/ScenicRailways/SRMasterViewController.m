@@ -9,11 +9,13 @@
 #import "SRMasterViewController.h"
 
 #import "AFJSONRequestOperation.h"
+#import "MBProgressHUD.h"
 #import "SRRouteTableViewController.h"
 #import "SRScenicRoute.h"
 
 @interface SRMasterViewController () {
     NSMutableArray *_objects;
+    BOOL _loading;
 }
 @end
 
@@ -25,22 +27,35 @@
     if (self) {
         self.title = NSLocalizedString(@"Scenic Railways", nil);
         _objects = [NSMutableArray array];
+        _loading = NO;
     }
     return self;
 }
 
 - (void)startDataLoad {
+    if (_loading) {
+        return;
+    }
+    _loading = YES;
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
     NSURL *url = [NSURL URLWithString:@"http://www.scenicrailways.org.uk/scenic_routes.json"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         [self receivedDataUpdate:JSON];
-    } failure:nil];
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [self receivedDataUpdate:JSON];
+    }];
     
     [operation start];
 }
 
 - (void)receivedDataUpdate:(id)JSON {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    _loading = NO;
+    
     [_objects removeAllObjects];
     if (JSON) {
         for (NSDictionary *routeDict in JSON) {
@@ -61,14 +76,16 @@
     }
     [self.tableView reloadData];
 }
-							
-- (void)viewDidLoad
-{
+
+- (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationItem setBackBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Home"
                                                                                 style:UIBarButtonItemStylePlain
                                                                                target:nil
                                                                                action:nil]];
+    
+    UIBarButtonItem *reloadButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(startDataLoad)];
+    self.navigationItem.rightBarButtonItem = reloadButton;
 
     [self startDataLoad];
 }
