@@ -9,6 +9,7 @@
 #import "SRLocationViewController.h"
 
 #import "SRRouteEntry.h"
+#import "SRViewOfInterest.h"
 #import "MKMapView+ZoomLevel.h"
 #import "TTTLocationFormatter.h"
 
@@ -57,7 +58,19 @@
 
 - (void)updateView {
     self.title = _entry.name;
-    _nameLabel.text = _entry.name;
+
+    NSString *name = _entry.name;
+    if ([_entry isKindOfClass:[SRViewOfInterest class]]) {
+        BOOL isLeft = ((SRViewOfInterest *)_entry).leftSide;
+        if (isLeft) {
+            name = [NSString stringWithFormat:@"%@ (to the left)", name];
+        } else {
+            name = [NSString stringWithFormat:@"%@  (to the right)", name];
+        }
+    }
+    
+    _nameLabel.text = name;
+    _descriptionLabel.text = _entry.description;
     
     NSArray *oldAnnotations = [_mapView.annotations copy];
     for (id<MKAnnotation> annotation in oldAnnotations) {
