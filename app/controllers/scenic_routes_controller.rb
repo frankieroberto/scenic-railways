@@ -12,4 +12,17 @@ class ScenicRoutesController < ApplicationController
     respond_with @scenic_route
   end
 
+  def new
+    @scenic_route = ScenicRoute.new
+  end
+
+  def create
+    @scenic_route = ScenicRoute.new(params[:scenic_route])
+    if @scenic_route.save
+      redirect_to scenic_route_path(@scenic_route)
+    else
+      render 'new'
+    end
+  end
+
 end
