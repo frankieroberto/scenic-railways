@@ -35,6 +35,7 @@
 		D8B4FEB71629A55400458ECE /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4FEAC1629A55400458ECE /* AFURLConnectionOperation.m */; };
 		D8B4FEB81629A55400458ECE /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4FEAE1629A55400458ECE /* AFXMLRequestOperation.m */; };
 		D8B4FEB91629A55400458ECE /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4FEB01629A55400458ECE /* UIImageView+AFNetworking.m */; };
+		D8B4FEBC1629A95600458ECE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B4FEBB1629A95600458ECE /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,7 @@
 		D8B4FEAE1629A55400458ECE /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		D8B4FEAF1629A55400458ECE /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		D8B4FEB01629A55400458ECE /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		D8B4FEBB1629A95600458ECE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8B4FEBC1629A95600458ECE /* CoreLocation.framework in Frameworks */,
 				D8B4FE5216298E4F00458ECE /* UIKit.framework in Frameworks */,
 				D8B4FE5416298E4F00458ECE /* Foundation.framework in Frameworks */,
 				D8B4FE5616298E4F00458ECE /* CoreGraphics.framework in Frameworks */,
@@ -106,6 +109,7 @@
 		D8B4FE4216298E4E00458ECE = {
 			isa = PBXGroup;
 			children = (
+				D8B4FEBB1629A95600458ECE /* CoreLocation.framework */,
 				D8B4FE5716298E4F00458ECE /* ScenicRailways */,
 				D8B4FE5016298E4F00458ECE /* Frameworks */,
 				D8B4FE4E16298E4E00458ECE /* Products */,

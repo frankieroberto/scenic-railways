@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 Joe Hughes. All rights reserved.
 //
 
+#import <CoreLocation/CoreLocation.h>
+
 #import "SRRouteTableViewController.h"
 
 #import "SRScenicRoute.h"
@@ -61,6 +63,8 @@
     
     SRStation *sheffield = [[SRStation alloc] init];
     sheffield.name = @"Sheffield";
+    sheffield.wikipediaURL = @"http://en.wikipedia.org/wiki/Sheffield_station";
+    sheffield.coordinate = CLLocationCoordinate2DMake(53.378, -1.462);
     [_routeEntries addObject:sheffield];
     
     SRViewOfInterest *totleyTunnel = [[SRViewOfInterest alloc] init];
