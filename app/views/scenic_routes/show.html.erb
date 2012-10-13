@@ -4,10 +4,15 @@
 
 <% @scenic_route.scenic_route_parts.all.each do |part| %>
   <% route = part.route %>
+  <h2 class="station"><%= image_tag('national-rail.png') %> <%= link_to route.start_station.name, route.start_station %></h2>
+  <% part.route.vois.each do |voi| %>
+    <% poi = voi.poi %>
+    <h2 class="voi"><%= link_to poi.name, poi_path(poi) %></h2>
+    <p>Visible on the <em><%= voi.left_side? ? "left" : "right" %></em>.</p>
 
-  <%= route.start_station.name %>
+    <p class="description"><%= poi.description %></p>
 
-
+  <% end %>
 <% end %>
 
-<%= link_to 'new section', new_scenic_route_part_path(@scenic_route) %>
+<%#= link_to 'new section', new_scenic_route_part_path(@scenic_route) %>

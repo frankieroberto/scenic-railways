@@ -4,6 +4,9 @@ class ScenicRoutesController < ApplicationController
 
   def show
     @scenic_route = ScenicRoute.find(params[:id])
+    respond_with @scenic_route do |format|
+      format.json { render :json => @scenic_route.as_json(:include => [:scenic_route_parts]) }
+    end
   end
 
   def index
