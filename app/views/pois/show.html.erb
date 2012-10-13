@@ -1,7 +1,6 @@
-<h1><%= @poi.name %></h1>
+<h1>Point of interest: <%= @poi.name %></h1>
 
-
-<%= @poi.description %>
-
+<p><%= @poi.description %></p>
+<p>Located at <%= @poi.lat %>,<%= @poi.lng %></p>
 
 <%= link_to "edit", edit_poi_path(@poi) %>
